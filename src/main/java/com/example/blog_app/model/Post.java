@@ -1,5 +1,6 @@
 package com.example.blog_app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,8 @@ public class Post {
     String title;
     @Column
     String description;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "post")
     List<Comment> comments = new ArrayList<>();
 }
